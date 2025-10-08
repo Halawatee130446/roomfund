@@ -1,0 +1,178 @@
+/* Background Animation */
+body {
+    background: linear-gradient(135deg, #f9e7fe, #e0f7fa, #ffe0f0);
+    background-size: 400% 400%;
+    animation: bgmove 12s ease infinite;
+    font-family: 'Poppins', 'Prompt', sans-serif;
+    /* จัดการ Sticky Footer: Body ต้องเป็น Flex เพื่อจัดกึ่งกลางแนวตั้ง */
+    display: flex;
+    flex-direction: column; 
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Content Wrapper จัดกึ่งกลาง Card */
+#content-wrapper {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 40 !important; /* ล้าง margin-top ของ Topbar */
+    padding: 0 !important; 
+    flex: 1; /* ทำให้ Content Wrapper กินพื้นที่ที่เหลือเพื่อจัดกึ่งกลาง Card */
+}
+
+@keyframes bgmove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Card Styling (Glassmorphism + Border Animation) */
+.card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    padding: 25px 35px; 
+    width: 600px; /* เพิ่มความกว้างรองรับ 2 คอลัมน์ */
+    max-width: 90%; /* Responsive บนมือถือ */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1; 
+    margin: 20px 0; 
+}
+
+/* Conic Gradient Border Effect */
+.card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        from 180deg,
+        var(--secondary-pastel, #ffb6c1), 
+        var(--primary-pastel, #b4e1ff), 
+        var(--secondary-pastel, #fddde6),
+        var(--accent-pastel, #c4fcef), 
+        var(--secondary-pastel, #ffb6c1)
+    );
+    animation: rotate 6s linear infinite;
+    z-index: 0;
+    opacity: 0.2;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Form elements */
+.card h2 {
+    font-size: 1.6em; 
+    margin-bottom: 20px;
+    color: #555;
+    z-index: 1;
+    position: relative;
+}
+form {
+    z-index: 1;
+    position: relative;
+    text-align: left;
+}
+
+/* === Two Column Grid Layout === */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* แบ่งเป็น 2 คอลัมน์เท่ากัน */
+    gap: 0 25px; /* เว้นระยะห่างแนวนอน 25px */
+}
+
+/* รีเซ็ต margin-bottom ให้อินพุตที่อยู่ใน Grid */
+.form-grid input, .form-grid label {
+    margin-bottom: 0;
+}
+.form-grid > div {
+    margin-bottom: 15px; /* กำหนด margin ล่างให้แต่ละคอลัมน์แทน */
+}
+/* ============================ */
+
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 0.9em;
+    color: #666;
+    font-weight: 500;
+}
+input, textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 12px;
+    background: #f5f8fa;
+    font-size: 1em;
+    /* margin-bottom 15px ถูกย้ายไปที่ .form-grid > div */
+    transition: all 0.3s ease;
+    box-shadow: inset 0 0 0 1px #ddd;
+    box-sizing: border-box; 
+    font-family: inherit; 
+}
+input:focus, textarea:focus {
+    outline: none;
+    background: #fff;
+    box-shadow: 0 0 0 2px var(--accent-pastel, #a1e3d8); 
+}
+textarea {
+    resize: vertical;
+    min-height: 60px;
+    margin-bottom: 15px; /* สำหรับ textarea ที่อยู่นอก grid */
+}
+button {
+    background: linear-gradient(135deg, var(--accent-pastel, #a1e3d8), var(--secondary-pastel, #ffd6e0));
+    color: #444;
+    border: none;
+    border-radius: 15px;
+    padding: 12px 25px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 5px; /* ลด margin-top ลง */
+}
+button:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, var(--primary-pastel, #b4e1ff), var(--secondary-pastel, #ffb6c1)); 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive: กลับเป็น 1 คอลัมน์บนจอเล็ก */
+@media (max-width: 650px) {
+    .card {
+        width: 100%;
+    }
+    .form-grid {
+        grid-template-columns: 1fr; /* 1 คอลัมน์บนมือถือ */
+        gap: 0;
+    }
+}
+
+
+/* Error/Flash Message */
+.flash {
+    background: #ffd6e0;
+    color: #c62828;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    animation: fadeIn 0.5s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}

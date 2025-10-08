@@ -1,0 +1,107 @@
+
+/* ------------------------------------- */
+/* === Table Styling (Improved) === */
+/* ------------------------------------- */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    /* เงาที่ดูเบาและหรูหรา */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); 
+    border-radius: 12px;
+    overflow: hidden; 
+}
+
+.styled-table thead tr {
+    /* ใช้ Gradient คล้าย Card-paid (ฟ้าอ่อนไล่ไปขาว) */
+    background-image: linear-gradient(90deg, var(--primary-pastel, #b4e1ff) 0%, #ffffff 150%); 
+    color: #333; /* ข้อความสีเข้มตัดกับพื้นหลังอ่อน */
+    text-align: left;
+    font-weight: 700; /* เน้นหัวข้อให้ชัดเจน */
+    font-size: 1em;
+}
+
+.styled-table th, 
+.styled-table td {
+    padding: 15px 18px; /* เพิ่ม padding ให้ดูโปร่งขึ้น */
+    border: none;
+    vertical-align: middle;
+}
+
+.styled-table tbody tr {
+    /* ขอบบางมาก */
+    border-bottom: 1px solid #ededed; 
+    background-color: #ffffff;
+    transition: background-color 0.2s ease;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    /* สีสลับแถวที่นุ่มนวลมาก */
+    background-color: #fafafa; 
+}
+
+.styled-table tbody tr:last-of-type {
+    /* ลบขอบล่างเดิมออกเพราะใช้ box-shadow แล้ว */
+    border-bottom: none; 
+}
+
+.styled-table tbody tr:hover {
+    /* ใช้สีชมพูอ่อนมากเมื่อ Hover เพื่อให้เข้ากับธีมพาสเทล */
+    background-color: #fcecf4; 
+    box-shadow: 0 0 10px rgba(var(--secondary-pastel, 0, 0, 0), 0.1);
+}
+
+/* ปรับสีข้อความใน tbody ให้เข้ากับสีโดยรวม */
+.styled-table tbody td {
+    color: #555;
+    font-weight: 500;
+}
+
+/* === Status Badges/Cells (ปรับสีให้เข้าชุด) === */
+.status-badge {
+    display: inline-block;
+    padding: 6px 10px; /* เพิ่มขนาด badge */
+    border-radius: 20px; /* ให้ badge ดูเป็น pill-shaped */
+    font-weight: 700;
+    text-align: center;
+    min-width: 90px;
+    font-size: 0.85em;
+    letter-spacing: 0.5px;
+}
+
+.status-paid {
+    /* ใช้สีเขียวอ่อนจาก accent-pastel */
+    background-color: var(--accent-pastel, #c4fcef); 
+    color: #1a7c3b;
+}
+
+.status-pending {
+    /* ใช้สีส้มอ่อน/เหลือง (คล้าย card-expense) */
+    background-color: #fff4d1; 
+    color: #e69138;
+}
+
+.status-unpaid {
+    /* ใช้สีชมพูอ่อนจาก secondary-pastel */
+    background-color: var(--secondary-pastel, #ffd6e0); 
+    color: #c62828;
+}
+
+/* === Action Link Styling (ปรับปรุงให้สอดคล้องกับปุ่ม) === */
+.status-action a {
+    color: #007bff; /* สีน้ำเงินเข้มเพื่อความเด่น */
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 0.9em;
+    border: 1px solid #e0f7fa; /* เพิ่มขอบบางๆ */
+}
+
+.status-action a:hover {
+    /* Hover สวยๆ เหมือนปุ่ม */
+    background-color: var(--primary-pastel, #b4e1ff);
+    color: #333;
+    border-color: var(--primary-pastel, #b4e1ff);
+}
