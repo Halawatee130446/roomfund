@@ -1,0 +1,147 @@
+/* กำหนดสีใหม่ (สมมติว่าใช้ตัวแปรเหล่านี้จากไฟล์หลัก) */
+/* :root {
+    --primary-pastel: #b4e1ff;    // Light Blue
+    --secondary-pastel: #ffd6e0;  // Light Pink
+    --accent-pastel: #a1e3d8;     // Mint Green
+} */
+
+/* ------------------------------------- */
+/* === Table Styling (Applied Gradient Theme) === */
+/* ------------------------------------- */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    /* เงาที่ดูเบาและหรูหรา */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    overflow: hidden; 
+    text-align: left;
+}
+
+.styled-table thead tr {
+    /* ใช้ Gradient Header: ฟ้าอ่อนไล่ไปขาว */
+    background-image: linear-gradient(90deg, var(--primary-pastel, #b4e1ff) 0%, #ffffff 150%); 
+    color: #333; 
+    text-align: left;
+    font-weight: 700; 
+    font-size: 1em;
+}
+
+.styled-table th, 
+.styled-table td {
+    padding: 15px 18px; /* เพิ่ม Padding */
+    border: none;
+    vertical-align: middle;
+    color: #555;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #ededed; /* ขอบบางมาก */
+    background-color: #ffffff;
+    transition: background-color 0.2s ease;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #fafafa; /* สีสลับแถวที่นุ่มนวลมาก */
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: none; /* ลบขอบล่าง */
+}
+
+.styled-table tbody tr:hover {
+    background-color: #fcecf4; /* สีชมพูอ่อนเมื่อ Hover */
+}
+
+/* ------------------------------------- */
+/* === Status Badges/Cells (Adjusted) === */
+/* ------------------------------------- */
+.status-badge {
+    display: inline-block;
+    padding: 6px 10px; /* เพิ่มขนาด */
+    border-radius: 20px; /* Pill-shaped */
+    font-weight: 700;
+    text-align: center;
+    min-width: 90px;
+    font-size: 0.85em;
+    letter-spacing: 0.5px;
+}
+
+.status-paid {
+    background-color: var(--accent-pastel, #c4fcef); 
+    color: #1a7c3b;
+}
+
+.status-pending {
+    background-color: #fff4d1; 
+    color: #e69138;
+}
+
+.status-unpaid {
+    background-color: var(--secondary-pastel, #ffd6e0); 
+    color: #c62828;
+}
+.status-waived {
+    /* ปรับ Waived ให้ดูเป็นกลางและนุ่มนวล */
+    background-color: #e8e8e8; 
+    color: #666;
+}
+
+/* ------------------------------------- */
+/* === Action Link Styles (ปุ่มใหม่พร้อม Gradient) === */
+/* ------------------------------------- */
+.action-button {
+    display: inline-block;
+    padding: 8px 15px; /* เพิ่มขนาดปุ่ม */
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 5px;
+    font-size: 0.9em;
+    border: none;
+    /* เงาปุ่มที่นุ่มนวล */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.action-button:hover {
+    transform: translateY(-2px); /* ลอยขึ้นเล็กน้อย */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* 1. Primary Action (Pay/Re-submit/Create New Period) */
+.action-primary {
+    /* ใช้ Gradient อ่อนโยน: Mint -> Light Blue */
+    background-image: linear-gradient(135deg, var(--accent-pastel, #a1e3d8), var(--primary-pastel, #b4e1ff)); 
+    color: #333;
+}
+.action-primary:hover {
+    /* Hover สลับสี: Light Blue -> Mint */
+    background-image: linear-gradient(135deg, var(--primary-pastel, #b4e1ff), var(--accent-pastel, #a1e3d8)); 
+}
+
+/* 2. Secondary Action (View Status/View Submission) */
+.action-secondary {
+    /* ใช้ Gradient ที่นุ่มนวล: Light Blue -> White */
+    background-image: linear-gradient(135deg, var(--primary-pastel, #b4e1ff) 0%, #ffffff 100%); 
+    color: #333;
+}
+.action-secondary:hover {
+    /* Hover ใช้ Mint/Green */
+    background-color: var(--accent-pastel, #a1e3d8); 
+    background-image: none; /* ยกเลิก Gradient ตอน Hover */
+}
+
+/* 3. Danger Action (Delete) */
+.action-danger {
+    /* ใช้ Gradient อ่อนโยน: Pink -> White */
+    background-image: linear-gradient(135deg, var(--secondary-pastel, #ffd6e0) 0%, #ffffff 100%); 
+    color: #c62828;
+}
+.action-danger:hover {
+    /* Hover ใช้ Pink เข้มขึ้น */
+    background-color: #ffb6c1; 
+    background-image: none; /* ยกเลิก Gradient ตอน Hover */
+    color: #c62828;
+}

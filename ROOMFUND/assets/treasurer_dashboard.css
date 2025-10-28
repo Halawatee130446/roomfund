@@ -1,0 +1,147 @@
+/* ------------------------------------- */
+/* === Dashboard Specific Styles (Cards) === */
+/* ------------------------------------- */
+.dashboard-grid {
+    display: grid;
+    /* Responsive Grid: แสดง 3 คอลัมน์บนจอใหญ่, ปรับเป็น 2 หรือ 1 คอลัมน์บนจอเล็ก */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card-title {
+    font-size: 1em;
+    margin-bottom: 10px;
+    color: #555;
+    font-weight: 600;
+}
+.info-card {
+    /* ... สไตล์เดิม ... */
+    background: white; /* ตั้งเป็น default เพื่อรองรับเบราว์เซอร์เก่า */
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+}
+
+.info-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* ... สไตล์ card-title, card-value, card-footer-link เดิม ... */
+
+/* === สไตล์หลากสีใหม่สำหรับ Card (ปรับใช้ Gradient คล้าย .card-net) === */
+
+/* 1. Net Balance: เขียว/มิ้นท์ (Gradient) - สื่อถึงความสมดุล/สถานะที่ดี */
+.card-net { 
+    /* ใช้สีเขียวอ่อน (A1E3D8) ไล่ไปขาว */
+    background-image: linear-gradient(135deg, var(--accent-pastel, #a1e3d8) 0%, #ffffff 100%); 
+    border: none;
+}
+.card-net .card-value {
+    color: #1a7c3b; /* สีเขียวเข้มสำหรับตัวเลข */
+}
+.card-net .card-title, .card-net .card-footer-link {
+    color: #007bff;
+}
+
+/* 2. Total Paid/Income: ฟ้า (Gradient) - สื่อถึงความมั่นคง/รายรับ */
+.card-paid { 
+    /* ใช้สีฟ้าอ่อน (B4E1FF) ไล่ไปขาว */
+    background-image: linear-gradient(135deg, var(--primary-pastel, #b4e1ff) 0%, #ffffff 100%); 
+    color: #333;
+    border: none;
+}
+.card-paid .card-title, .card-paid .card-footer-link {
+    color: #007bff; /* สีน้ำเงินเข้มสำหรับลิงก์และหัวข้อ */
+}
+.card-paid .card-value {
+    color: #1a7c3b; /* สีเขียวเข้มสำหรับตัวเลข */
+}
+
+/* 3. Pending Verification: ชมพูอ่อน/แดง (Gradient) - สื่อถึงความเร่งด่วน/รอการตรวจสอบ */
+.card-pending { 
+    /* ใช้สีชมพูอ่อน (FFD6E0) ไล่ไปขาว */
+    background-image: linear-gradient(135deg, var(--secondary-pastel, #ffd6e0) 0%, #ffffff 100%); 
+    border: none;
+}
+.card-pending .card-value, .card-pending .card-footer-link {
+    color: #c62828; /* สีแดงสำหรับ Pending */
+}
+
+/* 4. Total Expenses: ส้มอ่อน (Gradient) - สื่อถึงการใช้จ่าย */
+.card-expense { 
+    /* ใช้สีส้มอ่อน (ffe0b2) ไล่ไปขาว */
+    background-image: linear-gradient(135deg, #ffe0b2 0%, #ffffff 100%); /* Custom Pastel Orange */
+    border: none;
+}
+.card-expense .card-value {
+    color: #e69138; /* สีส้มเข้ม */
+}
+
+/* 5. Total Members: ม่วงอ่อน (Gradient) - สื่อถึงผู้คน/องค์กร */
+.card-member { 
+    /* ใช้สีม่วงอ่อน (e6e0ff) ไล่ไปขาว */
+    background-image: linear-gradient(135deg, #e6e0ff 0%, #ffffff 100%); /* Custom Pastel Purple */
+    border: none;
+}
+.card-member .card-value {
+    color: #673ab7; /* สีม่วงเข้ม */
+}
+
+/* 6. Total Periods: เทาอ่อน (Gradient) - สื่อถึงเวลา/ข้อมูลพื้นฐาน (ใช้สีเทาอ่อนมาก) */
+.card-period { 
+    /* ใช้สีเทาอ่อน (e8e8e8) ไล่ไปขาว */
+    background-image: linear-gradient(135deg, #e8e8e8 0%, #ffffff 100%);
+    border: none;
+}
+
+/* ⚠️ ลบ border ที่ถูกกำหนดใน .info-card ออกเมื่อใช้สีเฉพาะ */
+.card-net, .card-paid, .card-pending, .card-expense, .card-member, .card-period {
+    /* ทำให้ gradient ดูเด่นขึ้นโดยการลบ border และเงาเดิมออก */
+    border: none !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* ปรับให้เงาหนาขึ้นเล็กน้อย */
+}
+
+.card-value {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+a {
+    color: inherit;
+    transition: color 0.2s ease;
+    font-size: 0.8em;
+}
+
+/*ขยาย select ให้เต็ม*/
+select {
+    width: 40%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/*ตกแต่งปุ่ม view*/
+form button {
+    background: linear-gradient(135deg, var(--accent-pastel, #a1e3d8), var(--primary-pastel, #b4e1ff));
+    color: #5e5e5e;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 25px;
+    font-size: 0.8em;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+form button:hover {
+    background: linear-gradient(135deg, var(--primary-pastel, #b4e1ff), var(--accent-pastel, #17086e));
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: #007bff;
+}

@@ -1,0 +1,59 @@
+/* Sidebar */
+  #memberSidebar {
+    position: fixed;
+    top: 60px;               /* adjust if you have topbar height */
+    left: 0;
+    bottom: 0;
+    width: 230px;
+    background: #f7f7f7;
+    border-right: 1px solid #ddd;
+    padding: 12px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    transition: transform 0.25s ease;
+    z-index: 999;
+    transform: translateX(0);
+  }
+  #memberSidebar .sidebar-header {
+    display:flex; align-items:center; gap:8px; margin-bottom:12px;
+  }
+  #memberSidebar .inside-toggle {
+    border: none; background:#eee; cursor:pointer; font-size:16px; padding:4px 8px; border-radius:4px;
+  }
+  #memberSidebar .sidebar-list { list-style:none; padding:0; margin:0; }
+  #memberSidebar .sidebar-list li { margin:6px 0; }
+  #memberSidebar .sidebar-list li.active a { font-weight:bold; color:#007bff; }
+  #memberSidebar a { text-decoration:none; color:#333; }
+
+  /* handle (visible when sidebar is collapsed) */
+  #memberSidebarHandle {
+    display: none; /* shown only when collapsed */
+    position: fixed;
+    top: 64px;      /* align with topbar */
+    left: 8px;      /* small visible handle at left edge */
+    z-index: 1001;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 1;
+    padding: 4px;
+  }
+
+  /* collapsed state: translate sidebar out */
+  .sidebar-collapsed #memberSidebar {
+    transform: translateX(-100%);
+  }
+
+  /* when collapsed, show the handle */
+  .sidebar-collapsed #memberSidebarHandle {
+    display: block;
+  }
+
+  /* content shift example (if you use #content-wrapper) */
+  #content-wrapper { transition: margin-left .25s ease; margin-left: 250px; }
+  .sidebar-collapsed #content-wrapper { margin-left: 20px; }

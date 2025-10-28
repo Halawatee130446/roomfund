@@ -1,0 +1,145 @@
+/* ------------------------------------- */
+/* === Table Styling (Applied Gradient Theme) === */
+/* ------------------------------------- */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    /* เงาที่ดูเบาและหรูหรา */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); 
+    border-radius: 12px;
+    overflow: hidden; 
+    text-align: left;
+}
+
+.styled-table thead tr {
+    /* ใช้ Gradient Header: ฟ้าอ่อนไล่ไปขาว */
+    background-image: linear-gradient(90deg, var(--primary-pastel, #b4e1ff) 0%, #ffffff 150%); 
+    color: #333; /* ข้อความสีเข้มตัดกับพื้นหลังอ่อน */
+    text-align: left;
+    font-weight: 700; /* เน้นหัวข้อให้ชัดเจน */
+    font-size: 1em;
+}
+
+.styled-table th, 
+.styled-table td {
+    padding: 15px 18px; /* เพิ่ม Padding ให้ดูโปร่งขึ้น */
+    border: none;
+    vertical-align: middle;
+    color: #555;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #ededed; /* ขอบบางมาก */
+    background-color: #ffffff;
+    transition: background-color 0.2s ease;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #fafafa; /* สีสลับแถวที่นุ่มนวลมาก */
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: none; /* ลบขอบล่าง */
+}
+
+.styled-table tbody tr:hover {
+    background-color: #fcecf4; /* สีชมพูอ่อนเมื่อ Hover */
+}
+
+/* ------------------------------------- */
+/* === Status Badges/Cells (Adjusted to Pill Shape) === */
+/* ------------------------------------- */
+.status-badge {
+    display: inline-block;
+    padding: 6px 10px; /* เพิ่มขนาด */
+    border-radius: 20px; /* Pill-shaped */
+    font-weight: 700;
+    text-align: center;
+    min-width: 90px;
+    font-size: 0.85em;
+    letter-spacing: 0.5px;
+}
+
+.status-paid {
+    background-color: #c4fcef; 
+    color: #1a7c3b;
+}
+
+.status-pending {
+    background-color: #fff4d1; 
+    color: #e69138;
+}
+
+.status-unpaid {
+    background-color: var(--secondary-pastel, #ffd6e0); 
+    color: #c62828;
+}
+.status-waived {
+    background-color: #e8e8e8; /* Light Gray */
+    color: #666;
+}
+
+/* ------------------------------------- */
+/* === Action Link (Text Link) === */
+/* ------------------------------------- */
+.action-link {
+    font-weight: 600;
+    color: #007bff; /* ใช้สีน้ำเงินเข้มเพื่อความเด่น */
+    text-decoration: none;
+    transition: color 0.2s;
+    display: inline-block;
+    padding: 4px 0;
+}
+
+.action-link:hover {
+    color: var(--accent-pastel, #a1e3d8); /* Hover เป็นสีเขียวอ่อน/มิ้นท์ */
+}
+
+/* ------------------------------------- */
+/* === Selector & Button Styles (Gradient) === */
+/* ------------------------------------- */
+.period-selector-group {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* เพิ่มระยะห่าง */
+    margin: 20px 0;
+}
+
+.period-selector-group select {
+    padding: 12px 15px; /* เพิ่ม padding */
+    border-radius: 12px; /* เพิ่มความโค้งมน */
+    border: 1px solid #e0e0e0;
+    font-size: 1em;
+    font-weight: 500;
+    width: 280px; /* เพิ่มความกว้าง */
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+    /* กำหนดสไตล์ input/select ให้เข้ากับธีม */
+    transition: all 0.3s ease;
+}
+
+.period-selector-group select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-pastel, #b4e1ff);
+}
+
+.period-selector-group button {
+    /* ใช้ Gradient อ่อนโยน: Mint -> Light Blue */
+    background-image: linear-gradient(135deg, var(--accent-pastel, #a1e3d8), var(--primary-pastel, #b4e1ff));
+    color: #444;
+    border: none;
+    padding: 12px 25px; /* ทำให้ปุ่มเด่นเท่า select */
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.period-selector-group button:hover {
+    /* Hover สลับสีและลอยขึ้น */
+    background-image: linear-gradient(135deg, var(--primary-pastel, #b4e1ff), var(--accent-pastel, #a1e3d8));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}

@@ -1,0 +1,78 @@
+
+/* Container Card for Form */
+.form-card {
+    max-width: 550px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eee;
+}
+
+.form-card h2 {
+    color: #555;
+    border-bottom: 2px solid var(--accent-pastel, #a1e3d8);
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+/* Form Layout */
+.styled-form label {
+    display: block;
+    margin: 15px 0 5px;
+    font-size: 0.95em;
+    color: #666;
+    font-weight: 500;
+}
+
+.styled-form input:not([type="hidden"]) {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 10px;
+    background: #f5f8fa;
+    font-size: 1em;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 0 0 1px #ddd;
+    box-sizing: border-box;
+    font-family: inherit; 
+}
+
+.styled-form input:focus {
+    outline: none;
+    background: #fff;
+    box-shadow: 0 0 0 2px var(--primary-pastel, #b4e1ff);
+}
+
+.styled-form button {
+    background: linear-gradient(135deg, var(--primary-pastel, #b4e1ff), var(--accent-pastel, #a1e3d8));
+    color: #444;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 25px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.styled-form button:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, var(--accent-pastel, #a1e3d8), var(--secondary-pastel, #ffd6e0));
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.flash-error {
+    background: #ffe0e0;
+    color: #cc0000;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ffaaaa;
+}

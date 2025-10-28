@@ -1,0 +1,126 @@
+/* ------------------------------------- */
+/* === Table Styling (Applied Gradient Theme) === */
+/* ------------------------------------- */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    /* เงาที่ดูเบาและหรูหรา */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); 
+    border-radius: 12px;
+    overflow: hidden; 
+    text-align: left;
+}
+
+.styled-table thead tr {
+    /* ใช้ Gradient Header: ฟ้าอ่อนไล่ไปขาว */
+    background-image: linear-gradient(90deg, var(--primary-pastel, #b4e1ff) 0%, #ffffff 150%); 
+    color: #333; /* ข้อความสีเข้มตัดกับพื้นหลังอ่อน */
+    text-align: left;
+    font-weight: 700; /* เน้นหัวข้อให้ชัดเจน */
+    font-size: 1em;
+}
+
+.styled-table th, 
+.styled-table td {
+    padding: 15px 18px; /* เพิ่ม Padding ให้ดูโปร่งขึ้น */
+    border: none;
+    vertical-align: middle;
+    color: #555;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #ededed; /* ขอบบางมาก */
+    background-color: #ffffff;
+    transition: background-color 0.2s ease;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #fafafa; /* สีสลับแถวที่นุ่มนวลมาก */
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: none; /* ลบขอบล่าง */
+}
+
+.styled-table tbody tr:hover {
+    background-color: #fcecf4; /* สีชมพูอ่อนเมื่อ Hover */
+}
+
+/* ------------------------------------- */
+/* === Status Badges/Cells (Pill-shaped) === */
+/* ------------------------------------- */
+.status-badge {
+    display: inline-block;
+    padding: 6px 10px; /* เพิ่มขนาด */
+    border-radius: 20px; /* Pill-shaped */
+    font-weight: 700;
+    text-align: center;
+    min-width: 90px;
+    font-size: 0.85em;
+    letter-spacing: 0.5px;
+}
+
+.status-paid {
+    background-color: var(--accent-pastel, #c4fcef); 
+    color: #1a7c3b;
+}
+
+.status-pending {
+    background-color: #fff4d1; 
+    color: #e69138;
+}
+
+.status-unpaid {
+    background-color: var(--secondary-pastel, #ffd6e0); 
+    color: #c62828;
+}
+.status-waive {
+    /* ปรับ Waive ให้เป็นสีเทาอ่อนที่เข้ากับธีม */
+    background-color: #e8e8e8; 
+    color: #666;
+}
+
+/* ------------------------------------- */
+/* === Action Link & Receipt Link (Button Style) === */
+/* ------------------------------------- */
+.action-link {
+    display: inline-block;
+    padding: 8px 15px; /* เพิ่มขนาดปุ่ม */
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    /* ใช้ Gradient หลัก (Mint -> Light Blue) */
+    background-image: linear-gradient(135deg, var(--accent-pastel, #a1e3d8), var(--primary-pastel, #b4e1ff)); 
+    color: #444;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    font-size: 0.9em; /* ขนาดฟอนต์เล็กน้อย */
+}
+
+.action-link:hover {
+    /* Hover สลับสีและลอยขึ้น */
+    background-image: linear-gradient(135deg, var(--primary-pastel, #b4e1ff), var(--secondary-pastel, #ffd6e0));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    color: #333;
+}
+
+.receipt-link {
+    display: inline-block;
+    padding: 6px 10px; 
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    /* สไตล์ลิงก์ใบเสร็จให้ดูเป็นปุ่ม secondary */
+    color: #444;
+    background-color: #e0f7fa;
+    transition: all 0.2s ease;
+    font-size: 0.85em;
+}
+
+.receipt-link:hover {
+    background-color: #c6e2ff;
+    color: #115599;
+}

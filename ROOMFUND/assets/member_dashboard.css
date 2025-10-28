@@ -1,0 +1,154 @@
+/* ------------------------------------- */
+/* === Dashboard Specific Styles (Cards) === */
+/* ------------------------------------- */
+.dashboard-grid {
+    display: grid;
+    /* แสดง 3 คอลัมน์บนจอใหญ่, ปรับเป็น 2 หรือ 1 คอลัมน์บนจอเล็ก */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+.member-stats-grid {
+    display: grid;
+    /* ปรับ minmax ให้ใหญ่ขึ้นเล็กน้อย */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.info-card {
+    /* สไตล์หลักของ Card */
+    background: white;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* เงาเข้มขึ้นเล็กน้อย */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    border: none; /* ลบ border ออกเพื่อเน้น Gradient/Solid Color */
+}
+
+.info-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* เงาเด่นขึ้นเมื่อ Hover */
+}
+
+.card-title {
+    font-weight: 500;
+    color: #666; /* สีเข้มขึ้น */
+    font-size: 0.95em;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card-value {
+    font-size: 2.0em; /* ขยายขนาดตัวเลข */
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-color, #333);
+}
+    
+.card-footer-link {
+    font-size: 0.85em;
+    font-weight: 600; /* เน้นลิงก์ */
+    display: block;
+    margin-top: 5px;
+    color: var(--primary-pastel, #333);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.card-footer-link:hover {
+    color: var(--accent-pastel, #000);
+}
+
+/* ⚠️ สไตล์สำหรับ Card ที่เป็น Gradient (ทั้งหมด) ⚠️ */
+.info-card {
+    border: none;
+}
+/* สไตล์เฉพาะสำหรับ Card แต่ละประเภท */
+
+/* 1. Net Balance (Overall): เขียว/มิ้นท์ (Gradient) */
+.card-net { 
+    background-image: linear-gradient(135deg, var(--accent-pastel, #a1e3d8) 0%, #ffffff 100%); 
+}
+.card-net .card-value {
+    color: #1a7c3b; /* สีเขียวเข้ม */
+}
+.card-net .card-title, .card-net .card-footer-link {
+    color: #007bff;
+}
+
+/* 2. Paid Count: สีฟ้าอ่อน (Gradient) */
+.card-paid-count {
+    /* ใช้ Primary Pastel (ฟ้า) ไล่ไปขาว */
+    background-image: linear-gradient(135deg, var(--primary-pastel, #b4e1ff) 0%, #ffffff 100%); 
+}
+.card-paid-count .card-value {
+    color: #007bff; /* สีน้ำเงินสดใส */
+}
+.card-paid-count .card-footer-link {
+    color: #1a7c3b !important; /* บังคับให้เป็นสีเขียว */
+}
+
+/* 3. Unpaid/Pending Count: ชมพู/แดง (Gradient) */
+.card-unpaid-count {
+    /* ใช้ Secondary Pastel (ชมพู) ไล่ไปขาว */
+    background-image: linear-gradient(135deg, var(--secondary-pastel, #ffd6e0) 0%, #ffffff 100%); 
+}
+.card-unpaid-count .card-value {
+    color: #c62828; /* สีแดง */
+}
+.card-unpaid-count .card-footer-link {
+    color: #c62828 !important; /* บังคับให้เป็นสีแดง */
+}
+
+/* 4. Waived Count: ม่วงอ่อน (Gradient) */
+.card-waived {
+    /* ใช้ Custom Pastel Purple ไล่ไปขาว */
+    background-image: linear-gradient(135deg, #e6e0ff 0%, #ffffff 100%);
+}
+.card-waived .card-value {
+    color: #673ab7; /* สีม่วงเข้ม */
+}
+
+/* 5. Total Periods: เทาอ่อน (Gradient) */
+.card-total-periods {
+    /* ใช้สีเทาอ่อนมาก ไล่ไปขาว */
+    background-image: linear-gradient(135deg, #e8e8e8 0%, #ffffff 100%);
+}
+.card-total-periods .card-value {
+    color: #555;
+}
+
+/* ------------------------------------- */
+/* === Quick Links Group (Styled as Buttons) === */
+/* ------------------------------------- */
+.quick-link-group {
+    display: flex;
+    flex-wrap: wrap; /* ให้ลิงก์ขึ้นบรรทัดใหม่เมื่อหน้าจอเล็ก */
+    gap: 10px; /* เพิ่มช่องว่างระหว่างปุ่ม */
+    margin-top: 20px;
+}
+
+.quick-link-group a {
+    display: inline-block;
+    padding: 10px 18px; /* เพิ่มขนาดปุ่ม */
+    border-radius: 10px; /* ความโค้งมน */
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    
+    /* ใช้ Gradient ที่สวยงาม (Blue -> Mint) */
+    background-image: linear-gradient(135deg, var(--primary-pastel, #b4e1ff), var(--accent-pastel, #a1e3d8));
+    color: #444;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.quick-link-group a:hover {
+    /* Hover สลับสีและลอยขึ้น */
+    background-image: linear-gradient(135deg, var(--secondary-pastel, #ffd6e0), var(--primary-pastel, #b4e1ff));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
